@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -60,16 +61,9 @@ public class UserResgistrationRestController {
     }
 
     @PostMapping(value="/",consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<UserDTO> createUser(@RequestBody final UserDTO user){
-        Long userId = user.getId() ;
-        Optional<UserDTO> optUserDTO = userJpaRepository.findById(userId);
-        if(optUserDTO.isPresent()){
-            CustomErrorType errorUserDTO = new CustomErrorType("Cannot create this user...they might already exist...") ;
-            return new ResponseEntity<UserDTO>(errorUserDTO,HttpStatus.CONFLICT);
-        }else {
-            userJpaRepository.save(user);
-            return new ResponseEntity<UserDTO>(user, HttpStatus.CREATED);
-        }
+    public ResponseEntity<UserDTO> createUser(@Valid @RequestBody final UserDTO user){
+        userJpaRepository.save(user);
+        return new ResponseEntity<UserDTO>(user, HttpStatus.CREATED);
     }
 
 

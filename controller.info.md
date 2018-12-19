@@ -153,15 +153,27 @@ CURL example of POST/PUT new user...
         curl -k -i -X POST -H 'Content-Type: application/json' \
         -d '{ "name":"Kevin Robinson", "address":"77777 Carbon LN Langford MD 30874", "email":"kevgrob@umd.edu" }'\
          https://localhost:4443
+         
+         
+         curl -k -i -X POST -H 'Content-Type: application/json' \
+                 -d '{ "id":100,"name":"Kevin Robinson", "address":"77777 Carbon LN Langford MD 30874", "email":"kevgrob@umd.edu" }'\
+                  https://localhost:4443
         
         curl -k -i -X POST -H 'Content-Type: application/json' \
                 -d '{ "name":"Phil Bossierre", "address":"88888 Mangnese Rd Fanlmord MD 50874", "email":"phillboss.edu" }'\
                  https://localhost:4443
         
         
+        
+       curl -k -i -X POST -H 'Content-Type: application/json' \
+                        -d '{  "address":"77777 Carbon LN Langford MD 30874", "email":"kevgrob@umd.edu" }'\
+                         https://localhost:4443 
+        
         curl -k -i -X PUT -H 'Content-Type: application/json' \
           --data  '{ "name":"Phil Bossierre", "address":"99999 Iodine Ave Bethesda MD 99874", "email":"phillboss.edu" }' \
           https://localhost:4443/4
+        
+        
         
 
 CURL example of DELETE current user by id...
