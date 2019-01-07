@@ -34,6 +34,12 @@ public class DataLoader {
         userDTO2.setEmail("CharlieQ@Gmail.com");
         userJpaRepository.save(userDTO2);
 
+        UserDTO userDTO3 = new UserDTO() ;
+        userDTO3.setName("Cenk Uyger");
+        userDTO3.setAddress("1111 Red st Colortown MD 20874");
+        userDTO3.setEmail("cenkuyger@Gmail.com");
+        userJpaRepository.save(userDTO3);
+
 
     }
 
