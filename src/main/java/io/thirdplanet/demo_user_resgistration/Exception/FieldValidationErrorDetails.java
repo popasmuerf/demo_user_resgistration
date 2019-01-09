@@ -1,4 +1,5 @@
 package io.thirdplanet.demo_user_resgistration.Exception;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List ;
 import java.util.Map ;
@@ -13,6 +14,7 @@ public class FieldValidationErrorDetails {
     private String error_path ;
     private String error_developer_Message ;
 
+    private List<FieldValidationError> errorsList = new ArrayList<FieldValidationError>();
     private Map<String, List<FieldValidationError>> errors =
             new HashMap<String,List<FieldValidationError>>();
 
@@ -24,6 +26,10 @@ public class FieldValidationErrorDetails {
     public String getError_title() {
         return error_title;
     }
+
+    public void setError_detail(String error_detail){this.error_detail = error_detail ;}
+
+    public String getError_detail(){return error_detail;}
 
     public void setError_status(int error_status){
         this.error_status = error_status ;
@@ -56,4 +62,13 @@ public class FieldValidationErrorDetails {
     public String getError_developer_Message() {
         return error_developer_Message;
     }
+
+    public void setErrors(List<FieldValidationError> errorsList){
+        this.errorsList = errorsList ;
+    }
+    public List<FieldValidationError> getErrors(){
+        return errorsList ;
+    }
+
+
 }

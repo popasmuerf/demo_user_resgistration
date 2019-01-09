@@ -66,6 +66,25 @@ MethodArgumentNotValidException is handled
 in the DefaultHandlerExceptionResolver and
 results in a 400 response code.
 
+       Michaels-MacBook-Pro:~ mdb$ 
+       Michaels-MacBook-Pro:~ mdb$ curl -k -i -X POST -H 'Content-Type: application/json'                 -d '{ "name":"Fuck Nigga", "email":"phillboss.edu" }'                 https://localhost:4443
+       HTTP/1.1 400 
+       Content-Length: 0
+       Date: Tue, 08 Jan 2019 01:04:17 GMT
+       Connection: close
+       
+       Michaels-MacBook-Pro:~ mdb$ 
+       
+       
+       #what I get back using a browser:
+       
+       {
+           "timestamp": "2019-01-08T01:24:57.722+0000",
+           "status": 415,
+           "error": "Unsupported Media Type",
+           "message": "Content type 'text/plain;charset=UTF-8' not supported",
+           "path": "/"
+       }
 
 
 Validators
@@ -200,5 +219,59 @@ message types....
         ERROR
     }
    
+   
+
+Handling Exceptions Using the @ControllerAdvice Annotation
+==========================================================
+The  annnotation:
+
+    @ControllerAdvice
+    
+is used to define a global exception handler for an exception
+handler method annotated using :
+
+    @ExceptionHander
+    
+
+A class annotated with the annotation:
+
+    @ControllerAdvice
+    
+will be applicable to all cotrollers in the application.
+So, any exception thrown by an controller class in that application
+will be handled by this annotated class having a method annotated with 
+the annotation:
+
+
+    @ExceptionHandler
+    
+This method will be executed only if any controller classes
+throw an exception matching the configured Exception class.
+
+
+So, let's create the controller advice class 
+
+    RestValidationHandler
     
     
+@ControllerAdvice 
+=================================
+Promotes a unified exception handling thoughout a whole
+application.
+
+Spring brings support for a global @ExceptionHandler with 
+the @ControllerAdvice annotation.  This enables a
+mechanism that breaks away from the older MVC model
+and makes use of the ResponseEntity along with the type safety
+and flexibility of @ExceptionHandler
+
+
+
+The @ControllerAdivce annotation allows us to consolidate our multiple,
+scattered @ExceptionHandlers from before into a single, global error
+handling component.
+
+    *   Full control over the body of the response as well as the status code
+    *   Mapping of several exceptions to the same method, to be
+        handled together,
+    *   Makes good use of the newer RESTful ResponseEntity response

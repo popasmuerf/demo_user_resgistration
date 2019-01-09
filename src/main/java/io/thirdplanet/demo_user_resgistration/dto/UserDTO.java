@@ -6,6 +6,8 @@ import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -22,14 +24,13 @@ public class UserDTO {
     @Column(name="USER_ID")
     private Long id ;
 
-   // @javax.validation.constraints.NotEmpty
-    //@Length(max=50)
+    @javax.validation.constraints.NotEmpty
+    @Length(max=50)
     @Column(name = "NAME")
     private String name ;
 
-    //@javax.validation.constraints.NotEmpty
-    //@Length(max=50)
-    @Column(name="ADDRESS")
+    @javax.validation.constraints.NotEmpty
+    @javax.validation.constraints.NotNull
     private String address ;
 
     //@Email

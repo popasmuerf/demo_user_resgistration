@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
@@ -18,6 +19,7 @@ import java.util.List;
 /**
  * Created by mdb on 12/19/18.
  */
+@ControllerAdvice
 public class RestValidationHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -36,16 +38,18 @@ public class RestValidationHandler {
 
         for(FieldError error: fieldErrors){
             FieldValidationError fError = processFieldError(error);
+            List<FieldValidationError> fieldValidationErrorsList =
+                    fErrorDetails.getErrors();
         }
         return null ;
     }
 
-    private FieldValidationError processFieldError(final FieldError error){
+    private FieldValidationError processFieldError(final FieldError fieldErrors){
                 FieldValidationError fieldValidationError = new FieldValidationError();
-                if(error !=null ){
-                    fieldValidationError.setFiled(error.getField());
+                if(fieldErrors !=null ){
+                    fieldValidationError.setFiled(fieldErrors.getField());
                     fieldValidationError.setType(TrayIcon.MessageType.ERROR) ;
-                    fieldValidationError.setMessage(error.getDefaultMessage());
+                    fieldValidationError.setMessage(fieldErrors.getDefaultMessage());
                 }
                 return fieldValidationError ;
     }

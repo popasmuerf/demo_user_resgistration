@@ -173,12 +173,20 @@ CURL example of POST/PUT new user...
           --data  '{ "name":"Phil Bossierre", "address":"99999 Iodine Ave Bethesda MD 99874", "email":"phillboss.edu" }' \
           https://localhost:4443/4
         
+ --------------shitty post request------------------------
+curl -k -i -X POST -H 'Content-Type: application/json' \
+                -d '{ "name":"", "address":"88888 Mangnese Rd Fanlmord MD 50874", "email":"phillboss.edu" }'\
+                 https://localhost:4443
+  
         
-        
+curl -k -i -X POST -H 'Content-Type: application/json' \
+                -d '{ "name":"Fuck Nigga", "email":"phillboss.edu" }'\
+                 https://localhost:4443
+         
 
 CURL example of DELETE current user by id...
 =======================================================
-        curl --insecure  -X DELETE https://localhost:4443/4
+        curl --insecure  -X DELETE https://localhost:4443/6
 
 
 
