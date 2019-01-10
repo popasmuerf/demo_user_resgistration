@@ -1,5 +1,7 @@
 package io.thirdplanet.demo_user_resgistration.Exception;
-import java.awt.TrayIcon.MessageType ;
+
+import Messages.MessageType;
+
 /**
  * Created by mdb on 12/19/18.
  */

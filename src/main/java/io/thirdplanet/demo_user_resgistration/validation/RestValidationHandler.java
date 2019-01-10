@@ -30,7 +30,7 @@ public class RestValidationHandler {
         fErrorDetails.setError_timeStamp(new Date().getTime());
         fErrorDetails.setError_status(HttpStatus.BAD_REQUEST.value());
         fErrorDetails.setError_title("Field Validation Error");
-        fErrorDetails.setError_developer_Message(mNotValidException.getClass().getName());
+        fErrorDetails.setError_developerMessage(mNotValidException.getClass().getName());
         fErrorDetails.setError_path(request.getRequestURI());
 
         BindingResult result = mNotValidException.getBindingResult();
@@ -38,8 +38,7 @@ public class RestValidationHandler {
 
         for(FieldError error: fieldErrors){
             FieldValidationError fError = processFieldError(error);
-            List<FieldValidationError> fieldValidationErrorsList =
-                    fErrorDetails.getErrors();
+            //List<FieldValidationError> fieldValidationErrorsList = fErrorDetails.getErrors();
         }
         return null ;
     }
@@ -48,7 +47,7 @@ public class RestValidationHandler {
                 FieldValidationError fieldValidationError = new FieldValidationError();
                 if(fieldErrors !=null ){
                     fieldValidationError.setFiled(fieldErrors.getField());
-                    fieldValidationError.setType(TrayIcon.MessageType.ERROR) ;
+                   // fieldValidationError.setType(TrayIcon.MessageType.ERROR) ;
                     fieldValidationError.setMessage(fieldErrors.getDefaultMessage());
                 }
                 return fieldValidationError ;
