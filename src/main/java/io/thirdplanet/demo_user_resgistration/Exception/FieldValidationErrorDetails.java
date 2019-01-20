@@ -9,9 +9,9 @@ import java.util.Map ;
  *
  * The Deal with this class.....
  * ---------------------------------
- * The FieldValidationErrorDetails class..or rather it's insance
+ * The FieldValidationErrorDetails_old class..or rather it's insance
  * will be crated to generate an error response...i.e. the JSON
- * response regarding input validation errors...
+ * response regarding input validation_handlers errors...
  *
  *
  *     {
@@ -39,6 +39,13 @@ import java.util.Map ;
         }
 
 
+
+ ^^^The errors field in the FieldVAlidateionErrors detail class
+ is defined as a Map that accepts String instnaces as keys and a list of
+ FieldValidationError_old instances as values.
+
+ The next step is to create a class to intercept and process the
+ MethodArgumentNotValidException exception...
 
  Again...this class is responsible for being the data abstraction
  for the above JSON response....
@@ -106,6 +113,14 @@ public class FieldValidationErrorDetails {
         return error_developerMessage;
     }
 
+
+    public void setErrorsList(List<FieldValidationError> errorsList){
+        this.errorsList = errorsList ;
+    }
+    public List<FieldValidationError> getErrorsList(){
+        return errorsList ;
+    }
+
     public void setErrors(Map<String, List<FieldValidationError>> errors){
         this.errors = errors ;
     }
@@ -115,8 +130,8 @@ public class FieldValidationErrorDetails {
 
 
     //??
-    //public void setErrors(List<FieldValidationError> errorsList){this.errorsList = errorsList ;}
-    //public List<FieldValidationError> getErrors(){return errorsList ;}
+    //public void setErrors(List<FieldValidationError_old> errorsList){this.errorsList = errorsList ;}
+    //public List<FieldValidationError_old> getErrors(){return errorsList ;}
 
 
 }

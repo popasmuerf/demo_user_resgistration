@@ -34,7 +34,7 @@ public class UserDTO {
     private String address ;
 
     //@Email
-    //@javax.validation.constraints.NotEmpty
+    //@javax.validation_handlers.constraints.NotEmpty
     @Column(name = "EMAIL")
     private String email ;
 

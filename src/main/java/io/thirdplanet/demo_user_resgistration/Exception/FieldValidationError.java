@@ -8,7 +8,7 @@ import Messages.MessageType;
 public class FieldValidationError {
     private String filed ;
     private String message ;
-    private MessageType type ;
+    private java.awt.TrayIcon.MessageType type ;
 
 
     public void setFiled(String filed){
@@ -25,10 +25,10 @@ public class FieldValidationError {
         return message ;
     }
 
-    public void setType(MessageType type){
+    public void setType(java.awt.TrayIcon.MessageType type){
         this.type = type ;
     }
-    public MessageType getType(){
+    public java.awt.TrayIcon.MessageType getType(){
         return type ;
     }
 
