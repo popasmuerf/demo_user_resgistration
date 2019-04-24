@@ -1,16 +1,9 @@
 package io.thirdplanet.demo_user_resgistration.dto;
 
 //import javax.persistence.*;
-import javax.persistence.Column ;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Entity;
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.persistence.*;
 
 /**
  * Created by mdb on 10/1/18.
@@ -31,25 +24,16 @@ public class UserDTO {
 
     @javax.validation.constraints.NotEmpty
     @javax.validation.constraints.NotNull
+    @Column(name = "ADDRESS")
     private String address ;
 
-    //@Email
-    //@javax.validation_handlers.constraints.NotEmpty
+
     @Column(name = "EMAIL")
     private String email ;
 
-    /*
-    public void UserDTO(//Long id,
-                        String name,
-                        String address,
-                        String email){
-        //this.id = id ;
-        this.name = name ;
-        this.address = address ;
-        this.email = email ;
 
-    }
-    */
+
+
 
     public Long getId(){return id ;}
     public void setId(Long id){this.id = id ;}

@@ -1,7 +1,6 @@
 package io.thirdplanet.demo_user_resgistration.controller;
 
 import io.thirdplanet.demo_user_resgistration.Exception.CustomErrorType;
-import io.thirdplanet.demo_user_resgistration.domain.User;
 import io.thirdplanet.demo_user_resgistration.dto.UserDTO;
 import io.thirdplanet.demo_user_resgistration.repos.UserJpaRepository;
 import org.slf4j.Logger;
@@ -10,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -21,11 +19,12 @@ import java.util.Optional;
  * Created by mdb on 10/3/18.
  */
 @RestController
-//@RequestMapping("/api/user")
+@RequestMapping("/api/user")
 public class UserResgistrationRestController {
 
-    public static final Logger logger = LoggerFactory.getLogger(UserResgistrationRestController.class);
 
+
+    public static final Logger logger = LoggerFactory.getLogger(UserResgistrationRestController.class);
 
     private UserJpaRepository userJpaRepository ;
 
@@ -35,7 +34,7 @@ public class UserResgistrationRestController {
         this.userJpaRepository = userJpaRepository;
     }
 
-    @GetMapping("/")
+    @GetMapping("/users")
     public ResponseEntity<List<UserDTO>> listAllUsers() {
 
         List<UserDTO> users = userJpaRepository.findAll();
