@@ -3,6 +3,7 @@ package io.thirdplanet.demo_user_resgistration.controller;
 import io.thirdplanet.demo_user_resgistration.Exception.CustomErrorType;
 import io.thirdplanet.demo_user_resgistration.dto.UserDTO;
 import io.thirdplanet.demo_user_resgistration.repos.UserJpaRepository;
+import io.thirdplanet.demo_user_resgistration.service.DataLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,7 @@ public class UserResgistrationRestController {
     public static final Logger logger = LoggerFactory.getLogger(UserResgistrationRestController.class);
 
     private UserJpaRepository userJpaRepository ;
+    private DataLoader dataLoader ;
 
 
     @Autowired
