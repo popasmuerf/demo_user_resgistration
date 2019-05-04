@@ -37,6 +37,7 @@ dependencies {
 	//compile('org.springframework.boot:spring-boot-starter-security')
 	compile('com.h2database:h2')
 	runtime group: 'org.webjars.bower', name: 'angularjs', version: '1.4.9'
+	//runtime group: 'org.webjars.bower', name: 'angular-route', version: '1.4.9'
 	runtime group: 'org.webjars', name: 'bootstrap', version: '3.3.6'
 
 	testImplementation('org.springframework.boot:spring-boot-starter-test')

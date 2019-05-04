@@ -1,9 +1,7 @@
-var app = angular.module('dur',
-    ['ngRoute','ngResource']
-);
+var app = angular.module('dur',['ngRoute','ngResource']);
 
 
-app.config(function($routerProvider){
+app.config(function($routeProvider){
 
     $routeProvider.when(
         '/list-all-users',{
