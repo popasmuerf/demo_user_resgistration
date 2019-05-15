@@ -1,32 +1,38 @@
 <!DOCTYPE html>
-<html lang="en"  ng-app="dur">
+<html lang="en" ng-app="dur">
     <head>
         <title>Full Stack Development</title>
-        <link rel="sytlesheet" href="/css/app.css">
-        <!--<script src = "https//ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js">
-             </script>-->
+        <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <script src=https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-route.js"></script>
+        <script  type = "text/javascript" src="js/app.js"></script>
+        <script   type = "text/javascript" src="js/controller.js"></script>
+        <!--
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+        -->
+
     </head>
     <body>
-
-        <div class="page-header text center"w>
+        <div class="page-header text center">
             <h2>User Registration System</h2>
         </div>
-
         <nav class="navbar navbar-default">
             <div class="container-fluid">
-                <a href="#/"
+                <a href="#!/"
                     class="btn btn-info navbar-btn"
                     role="button">
                     Home
                 </a>
 
-                <a href="#/register-new-user"
+                <a href="#!/register-new-user"
                    class="btn btn-info navbar-btn"
                    role="button">
                     Register New User
                 </a>
 
-                <a href="#/list-all-users"
+                <a href="#!/list-all-users"
                    class="btn btn-info"
                    role="button">
                     List all Users
@@ -34,14 +40,5 @@
             </div>
         </nav>
         <div ng-view></div>
-
-        <script src="/webjars/angularjs/1.4.9/angular.js"></script>
-        <script src="/webjars/angularjs/1.4.9/angular-resource.js"></script>
-        <script src="/webjars/angularjs/1.4.9/angular-route.js"></script>
-        <script src="/js/app.js"></script>
-        <script src="/js/controller.js"></script>
-        <link rel="stylesheet" href="/webjars/bootstrap/3.3.6/css/bootstrap.css">
-
-
     </body>
 </html>
