@@ -34,7 +34,7 @@ dependencies {
 	compile group: 'org.javassist', name: 'javassist', version: '3.25.0-GA'
 	compile("org.springframework.boot:spring-boot-devtools")
 
-	//compile('org.springframework.boot:spring-boot-starter-security')
+	compile('org.springframework.boot:spring-boot-starter-security')
 	compile('com.h2database:h2')
 	runtime group: 'org.webjars.bower', name: 'angularjs', version: '1.4.9'
 	//runtime group: 'org.webjars.bower', name: 'angular-route', version: '1.4.9'
