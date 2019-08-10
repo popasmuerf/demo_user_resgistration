@@ -9,7 +9,7 @@ import javax.persistence.*;
  * Created by mdb on 10/1/18.
  */
 @Entity
-@Table(name="Users")
+@Table(name="users")
 
 public class UserDTO {
     @Id

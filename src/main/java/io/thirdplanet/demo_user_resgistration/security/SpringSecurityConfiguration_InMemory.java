@@ -39,7 +39,7 @@ import org.springframework.boot.autoconfigure.security.SecurityProperties;
 
 
 
-@Configuration 
+//@Configuration 
 public class SpringSecurityConfiguration_InMemory extends WebSecurityConfigurerAdapter{
 
     @Autowired
@@ -70,6 +70,8 @@ public class SpringSecurityConfiguration_InMemory extends WebSecurityConfigurerA
         .hasRole("USER")
         .antMatchers(HttpMethod.DELETE,"/api/user/**")
         .hasRole("ADMIN")
+        .antMatchers("/h2-console/**")
+        .permitAll()
         .and()
         .csrf()
         .disable() ;
