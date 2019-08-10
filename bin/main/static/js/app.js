@@ -29,9 +29,28 @@ app.config(function($routeProvider){
 
 
 
-app.controller("listUserController", function ($scope) {
+app.controller("listUserController", function ($scope,$http,$location,$route) {
            
-    $scope.message = "listUserController";
+    $http({
+        method:'GET',
+        url:"http://localhost:8080/api/user/users",
+    })
+    .then(function(response){
+        $scope.users = response.data ;
+    });
+    $scope.editUser = function(userId){
+        $location.path("/update-user/"+userId);
+    }
+    $scope.deleteUser = function(userId){
+        $http({
+            method:'DELETE',
+            url: 'http://localhost:8080/api/user/' + userId
+        })
+        .then(function(response){
+            $location.path("/list-all-users");
+            $route.reload() ;
+        });
+    }
 
 });
 
@@ -56,7 +75,27 @@ app.controller("registerUserController", function ($scope,$http,$location,$route
 
 
 
-app.controller("userDetailsController", function ($scope) {
-    $scope.message = "userDetailsController";
+app.controller("userDetailsController", function ($scope,$http,$location,$routeParams,$route){
+    $scope.userId = $routeParams.id ;
+    $http({
+        method:"GET",
+        url:"http://localhost:8080/api/user/" + $scope.userId,
+    })
+    .then(function(response){
+        $scope.user = response.data ;
+    });
+    $scope.submitUserForm = function(){
+        $http({
+            method:"POST",
+            url:"http://localhost:8080/api/user/",
+            data:$scope.user,
+        })
+        .then(function(response){
+            $location.path("/list-all-users");
+            $route.reload() ;
+        },function(errResponse){
+            $scope.errorMessage = errResponse.data.errorMessage;
+        });
+    }
 });
 
