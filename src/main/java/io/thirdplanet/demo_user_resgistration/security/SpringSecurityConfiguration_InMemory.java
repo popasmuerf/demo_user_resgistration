@@ -58,7 +58,7 @@ public class SpringSecurityConfiguration_InMemory extends WebSecurityConfigurerA
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception{
-        /*
+        
         httpSecurity.httpBasic()
         .and()
         .authorizeRequests()
@@ -73,7 +73,9 @@ public class SpringSecurityConfiguration_InMemory extends WebSecurityConfigurerA
         .and()
         .csrf()
         .disable() ;
-        */
+        
+
+        /*
         httpSecurity.httpBasic()
         .and()
         .authorizeRequests()
@@ -82,6 +84,8 @@ public class SpringSecurityConfiguration_InMemory extends WebSecurityConfigurerA
         .and()
         .csrf()
         .disable();
+
+        */
 
     }
     
