@@ -2,6 +2,8 @@
 
 
 var app = angular.module('dur',['ngRoute']);
+
+
 app.config(function($routeProvider){
 
     $routeProvider.when(
@@ -98,4 +100,23 @@ app.controller("userDetailsController", function ($scope,$http,$location,$routeP
         });
     }
 });
+
+
+app.factory('AuthInterceptor', [ function() {
+	return {
+		'request' : function(config) {
+			config.headers = config.headers || {};
+			var encodedString = btoa("admin:password");
+			config.headers.Authorization = 'Basic ' + encodedString;
+			return config;
+		}
+	};
+} ]);
+
+
+
+
+app.config(['$httpProvider', function($httpProvider) {
+    $httpProvider.interceptors.push('AuthInterceptor');
+  }]);
 

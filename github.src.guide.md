@@ -1,0 +1,1 @@
+https://github.com/Apress/full-stack-angularjs-for-java-devs
